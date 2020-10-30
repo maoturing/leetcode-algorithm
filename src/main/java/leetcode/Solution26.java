@@ -28,7 +28,7 @@ public class Solution26 {
      * 与27, 283 问题解决思路类似
      * 注意 nums 是有序数组, 即重复元素总是相邻的
      * <p>
-     * 思路: 双指针
+     * 思路: 双指针,快慢指针?
      * k是慢指针, i是快指针, [0...k] 中没有重复元素
      * 当nums[i]与数组无重复部分的最后一个元素nums[k]相等时, 即num[i]为重复元素, 自增i跳过该元素,
      * 当nums[i]与数组无重复部分的最后一个元素nums[k]不等时, 就复制 nums[i]到 nums[k], 并同时自增 i 和 k,
@@ -77,8 +77,8 @@ public class Solution26 {
         Assert.assertEquals(5, count);
         System.out.println("无重复部分长度: " + count);
 
-        for (int i = 0; i < nums.length; i++) {
-            System.out.println(nums[i]);
+        for (int num : nums) {
+            System.out.println(num);
         }
     }
     @Test
@@ -88,8 +88,8 @@ public class Solution26 {
         Assert.assertEquals(2, count);
         System.out.println("无重复部分长度: " + count);
 
-        for (int i = 0; i < nums.length; i++) {
-            System.out.println(nums[i]);
+        for (int num : nums) {
+            System.out.println(num);
         }
     }
 }

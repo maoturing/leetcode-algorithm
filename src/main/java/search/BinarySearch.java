@@ -9,23 +9,19 @@ import utils.MyUtil;
  * 2. 在循环中不断改变变量, 但要保持其含义不变, 即改变 l=mid+1, 仍在[l....r]中查找target
  * 3. 使用小数据集测试
  * 4. 使用大数据集测试
+ *
  * @author mao  2020/10/22 0:07
  */
 public class BinarySearch {
 
     /**
      * 二分查找的前提是有序数组
-     *
-     * @param arr
-     * @param length
-     * @param target
-     * @return
      */
-    public static int BinarySearch(int[] arr, int length, int target) {
+    public static int binarySearch(int[] arr, int length, int target) {
         int l = 0, r = length - 1;      // 在集合[l...r]中查找target, 左闭右闭
 
         while (l <= r) {        // 在[l...r]的范围里寻找target, 当l==r时这个区间仍然有元素
-            int mid = (l + r) / 2;      // 防止整型溢出改为 l+(r-l)/2
+            int mid = l + (r - l) / 2;      // 求中间值, 防止 (l+r)/2 整型溢出
             if (arr[mid] == target) {
                 return mid;
             }
@@ -41,12 +37,8 @@ public class BinarySearch {
 
     /**
      * 修改边界，算法的难点在于边界处理，要维持[l...r)的意义
-     * @param arr
-     * @param length
-     * @param target
-     * @return
      */
-    public static int BinarySearch2(int[] arr, int length, int target) {
+    public static int binarySearch2(int[] arr, int length, int target) {
         int l = 0, r = length;      // 在集合[l...r)中查找target, 左闭右闭
 
         while (l < r) {        // 在[l...r)的范围里寻找target, 当l==r时这个区间没有元素
@@ -70,7 +62,7 @@ public class BinarySearch {
         long start = System.currentTimeMillis();
 
         for (int i = 0; i < n; i++) {
-            Assert.assertEquals(i, BinarySearch.BinarySearch(data, n, i));
+            Assert.assertEquals(i, BinarySearch.binarySearch(data, n, i));
         }
         long time = System.currentTimeMillis() - start;
         System.out.println(n + "个有序元素的二分查找花费时间：" + time);
