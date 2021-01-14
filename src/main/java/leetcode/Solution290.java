@@ -36,6 +36,9 @@ import java.util.Map;
 public class Solution290 {
     /**
      * 利用map的特性, 以及pattern与str长度相等的特性, 保存映射关系, 然后遍历pattern与str, 检查映射关系是否一致
+     * 遍历pattern和s, 保存映射关系到map, 如果不存在映射关系, 则添加映射到map;
+     * 如果map中已存在映射关系, 则检查是否与前面的映射关系一致,
+     * 如果一致, 则继续遍历, 如果不一致, 则说明不匹配, 返回false
      *
      * https://leetcode-cn.com/problems/word-pattern/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by--53/
      */
@@ -73,8 +76,8 @@ public class Solution290 {
      *
      * 这种思路也能够很容易解决 pattern = "abba"; s = "dog dog dog dog" 的case
      *
-     *
      * 这种思路效率好低啊!!!
+     * 经过验证, 耗时点在于 String.split() 操作, 如果修改为 String.toCharArray() 会好很多
      */
     public boolean wordPattern2(String pattern, String s) {
         String[] words = s.split(" ");
