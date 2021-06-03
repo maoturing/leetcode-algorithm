@@ -76,7 +76,7 @@ public class Solution125 {
         return true;
     }
 
-        @Test
+    @Test
     public void test() {
         String s = "race a car";
         boolean palindrome = isPalindrome(s);
